@@ -45,6 +45,13 @@ masterPlay.addEventListener('click',()=>{
 audioElement.addEventListener('timeupdate',()=>{
     progress=parseInt((audioElement.currentTime/audioElement.duration)*100);
     progressBar.value=progress;
+
+    //
+
+    let minutes = Math.floor(audioElement.currentTime / 60);
+    let seconds = Math.floor(audioElement.currentTime % 60);
+
+    start.innerText = `${minutes}:${String(seconds).padStart(2,'0')}`;
     
 })
 progressBar.addEventListener('change',()=>{
